@@ -1,8 +1,8 @@
 cargo:
   debug:
-    toolchain: stable
+    toolchain: "1.94.0"
   release:
-    toolchain: stable
+    toolchain: "1.94.0"
 precompiled_binaries:
   url_prefix: https://github.com/LtbLightning/payjoin-flutter/releases/download/precompiled_
   public_key: acc9fbea1d5cca0660ed71b0e516663d36f0180a9826a6e5ba06ca26d4850de7
