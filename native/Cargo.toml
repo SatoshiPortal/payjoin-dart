@@ -1,0 +1,25 @@
+[workspace]
+
+[package]
+name = "payjoin-ffi-wrapper"
+description = "This is a simple wrapper crate which re-exports payjoin-ffi for publishing to pub.dev"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+publish = false
+
+[features]
+_test-utils = ["payjoin-ffi/_test-utils"]
+
+[lib]
+name = "payjoin_ffi_wrapper"
+crate-type = ["staticlib", "cdylib"]
+
+[dependencies]
+payjoin-ffi = { git = "https://github.com/payjoin/rust-payjoin.git", rev = "c52bac921731f7d1a08bd2901499027fb1360ee2", features = [
+  "dart",
+] }
+# Exact-pin: payjoin 1.0.0-rc.6 (published 2026-07-23) breaks payjoin-ffi at
+# the rev pinned above (UriExt/PjUri API changes). Remove once upstream ships
+# a pub release built against a newer payjoin-ffi.
+payjoin = "=1.0.0-rc.5"
